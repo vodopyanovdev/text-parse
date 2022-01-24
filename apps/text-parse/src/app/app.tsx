@@ -1,13 +1,8 @@
 import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
+import { TextArea } from '../components/TextArea';
 
-export function App() {
-  return (
-    <>
-      <NxWelcome title="text-parse" />
-      <div />
-    </>
-  );
-}
+export const App = () => {
+  return <TextArea></TextArea>;
+};
 
 export default App;
