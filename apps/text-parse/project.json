@@ -1,0 +1,73 @@
+{
+  "root": "apps/text-parse",
+  "sourceRoot": "apps/text-parse/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/text-parse",
+        "index": "apps/text-parse/src/index.html",
+        "baseHref": "/",
+        "main": "apps/text-parse/src/main.tsx",
+        "polyfills": "apps/text-parse/src/polyfills.ts",
+        "tsConfig": "apps/text-parse/tsconfig.app.json",
+        "assets": [
+          "apps/text-parse/src/favicon.ico",
+          "apps/text-parse/src/assets"
+        ],
+        "styles": ["apps/text-parse/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/text-parse/src/environments/environment.ts",
+              "with": "apps/text-parse/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "text-parse:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "text-parse:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/text-parse/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/text-parse"],
+      "options": {
+        "jestConfig": "apps/text-parse/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

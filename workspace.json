@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "text-parse": "apps/text-parse",
+    "text-parse-e2e": "apps/text-parse-e2e"
+  }
+}
